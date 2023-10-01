@@ -1,0 +1,187 @@
+@import "variables";
+
+@media (min-width: $media0) {
+	.hoveredButton {
+		
+		padding: 10px 20px;
+		border-radius: 30px;
+		transition: all .3s;
+		font-size: 14px;
+		line-height: 22px;
+		font-family: 'Manrope-Bold';
+		color: $colorAccent;
+		border: 1.6px solid $colorAccent;
+		background: $colorWhite;
+		text-decoration: none;
+		cursor: pointer;
+		position: relative;
+		display: flex;
+		align-items: center;
+		white-space: nowrap;
+		overflow: hidden;
+
+		span {
+			letter-spacing: -0.14px;
+			z-index: 5;
+		transition: color 350ms ease;
+
+		}
+
+		&-link {
+			text-decoration: none;
+		}
+
+		img {
+			margin-left: 8px;
+			width: 14px;
+			height: 11px;
+			z-index: 3;
+			//margin-bottom: 2px;
+		}
+
+		&-only {
+			border: none;
+		}
+
+		  &-simple:hover span, 
+		  &-simpleDark:hover span,
+		  &-arrowWhite:hover span,
+		  &-arrowRevert:hover span,
+		  &-arrow:hover span
+		  {
+			color: white;
+		  }
+		  
+		  &-simple::after, &-simple::before, 
+		  &-simpleDark::after, &-simpleDark::before,
+		  &-arrowWhite::after, &-arrowWhite::before,
+		  &-arrowRevert::after, &-arrowRevert::before,
+		  &-arrow::after, &-arrow::before
+		  {
+			content: " ";
+			display: block;
+			position: absolute;
+			width: 100%;
+			top: 0;
+			bottom: 0;
+			right: 0;
+			background-image: linear-gradient(135deg, #4072A3, #7EA2BC);
+			z-index: -1;
+		  }
+		  
+		  &-simple::before, 
+		  &-simpleDark::before,
+		  &-arrowWhite::before,
+		  &-arrow::before,
+		  &-arrowRevert::before 
+		  {
+		  /*   background: blue; */
+			transform: translateX(-100%);
+			z-index: 1;
+		  }
+		  
+		  &-simple:hover:before, 
+		  &-simpleDark:hover:before,
+		  &-arrowWhite:hover:before,
+		  &-arrow:hover:before,
+		  &-arrowRevert:hover:before
+		  {
+			transform: translateX(0);
+			transition: transform 350ms ease;
+		  }
+		  
+		  &-simple::after,
+		  &-simpleDark::after, 
+		  &-arrowWhite::after, 
+		  &-arrow::after, 
+		  &-arrowRevert::after 
+		  {
+			z-index: 0;
+			transform: translateX(100%);
+			transition: none;
+			transition: transform 350ms ease;
+		  }
+		  
+		  &-simple:hover:after, 
+		  &-simpleDark:hover:after, 
+		  &-arrowWhite:hover:after, 
+		  &-arrow:hover:after, 
+		  &-arrowRevert:hover:after 
+		  {
+			opacity: 1;
+			transform: translateX(0);
+		   transition: transform 350ms 360ms ease;
+		  }
+
+		&-simpleDark {
+			background: $colorAccent;
+			color: $colorWhite;
+		}
+
+		&-arrowWhite {
+			color: $colorWhite;
+			background: transparent;
+			border-color: $colorWhite;
+		}
+
+		&-arrowRevert {
+			background: rgba(255, 255, 255, 0.10);
+			box-shadow: 0 51px 64px 0 rgba(0, 0, 0, 0.10) !important;
+			backdrop-filter: blur(2px) !important;
+			color: $colorWhite;
+			border-color: $colorWhite;
+		}
+
+		&-light {
+			border: 1px solid $colorWhite;
+			background: rgba(255, 255, 255, .1);
+			color: $colorWhite;
+			cursor: pointer;
+		}
+	}
+
+	// Scroll Button
+	.btn-scroll {
+		position: absolute;
+		bottom: 40px;
+		left: 0;
+		right: 0;
+		margin: 0 auto;
+		width: 40px;
+		height: 40px;
+		object-fit: cover;
+		border-radius: 50%;
+		border: 2px solid $colorWhite;
+		background: rgba(255, 255, 255, .2);
+		z-index: 7;
+
+		img {
+			width: 14px;
+			height: 10px;
+		}
+	}
+}
+
+@media (min-width: $media1200) {
+	.hoveredButton {
+
+		&-only {
+
+			&:hover {
+				background: $colorAccent;
+				color: $colorWhite;
+			}
+		}
+
+
+
+
+		&-light {
+
+			&:hover {
+				background: $colorWhite;
+				color: $colorAccent;
+			}
+		}
+	}
+}
